@@ -2,6 +2,7 @@ import {Routes} from '@angular/router';
 
 import {FullComponent} from './layouts/full/full.component';
 import {LoginComponent} from './login/login.component';
+import {LandingComponent} from './landing/landing.component';
 
 export const AppRoutes: Routes = [
   {
@@ -21,6 +22,16 @@ export const AppRoutes: Routes = [
       {
         path: 'starter',
         loadChildren: './starter/starter.module#StarterModule'
+      }
+    ]
+  },
+  {
+    path: '',
+    component: LandingComponent,
+    children: [
+      {
+        path: 'login',
+        component: LoginComponent
       }
     ]
   }
