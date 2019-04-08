@@ -19,6 +19,7 @@ import { SharedModule } from './shared/shared.module';
 import { SpinnerComponent } from './shared/spinner.component';
 import { LoginComponent } from './login/login.component';
 import { LandingComponent } from './landing/landing.component';
+import { IndexComponent } from './index/index.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { LandingComponent } from './landing/landing.component';
     SpinnerComponent,
     AppSidebarComponent,
     LoginComponent,
-    LandingComponent
+    LandingComponent,
+    IndexComponent
   ],
   imports: [
     BrowserModule,
