@@ -20,6 +20,7 @@ import { SpinnerComponent } from './shared/spinner.component';
 import { LoginComponent } from './login/login.component';
 import { LandingComponent } from './landing/landing.component';
 import { IndexComponent } from './index/index.component';
+import { SwiperModule } from 'angular2-useful-swiper';
 
 @NgModule({
   declarations: [
@@ -40,6 +41,7 @@ import { IndexComponent } from './index/index.component';
     FlexLayoutModule,
     HttpClientModule,
     SharedModule,
+    SwiperModule,
     RouterModule.forRoot(AppRoutes)
   ],
   providers: [

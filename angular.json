@@ -22,10 +22,12 @@
             ],
             "styles": [
               "src/styles.css",
-              "src/assets/styles/style.scss"
+              "src/assets/styles/style.scss",
+              "node_modules/swiper/dist/css/swiper.css"
             ],
             "scripts": [
-              "node_modules/jquery/dist/jquery.min.js"
+              "node_modules/jquery/dist/jquery.min.js",
+              "node_modules/swiper/dist/js/swiper.js"
             ]
           },
           "configurations": {

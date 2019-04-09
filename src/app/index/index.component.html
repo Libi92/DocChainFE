@@ -1,3 +1,16 @@
-<p>
-  index works!
-</p>
+<swiper [config]="config">
+  <div class="swiper-wrapper">
+    <div *ngFor="let slide of slides" class="swiper-slide {{slide['class']}}">
+      <div class="slide-overlay">
+        <h1 class="slide-title">{{slide['title']}}</h1>
+        <p class="slide-description">{{slide['description']}}</p>
+      </div>
+    </div>
+  </div>
+  <!-- Add Pagination -->
+  <div class="swiper-pagination"></div>
+  <!-- Add Arrows -->
+  <div class="swiper-button-next"></div>
+  <div class="swiper-button-prev"></div>
+</swiper>
+
