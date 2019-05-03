@@ -4,27 +4,31 @@
      fxLayoutGap="10px">
   <div fxFlex="50%">
     <h3>Add New Student</h3>
-    <form>
+    <form [formGroup]="studentForm">
       <mat-form-field class="full-width">
-        <input matInput placeholder="Name">
+        <input matInput placeholder="Name" formControlName="name">
       </mat-form-field>
 
       <mat-form-field class="full-width">
-        <input matInput placeholder="Department">
+        <input matInput placeholder="Reg.No" formControlName="registerNo">
       </mat-form-field>
 
       <mat-form-field class="full-width">
-        <input matInput placeholder="Degree">
-      </mat-form-field>
-      <mat-form-field class="full-width">
-        <input matInput placeholder="College">
+        <input matInput placeholder="Department" formControlName="department">
       </mat-form-field>
 
       <mat-form-field class="full-width">
-        <input matInput placeholder="Year">
+        <input matInput placeholder="Degree" formControlName="degree">
+      </mat-form-field>
+      <mat-form-field class="full-width">
+        <input matInput placeholder="College" formControlName="college">
       </mat-form-field>
 
-      <button mat-button color="primary">Add</button>
+      <mat-form-field class="full-width">
+        <input matInput placeholder="Year" formControlName="year">
+      </mat-form-field>
+
+      <button mat-button color="primary" (click)="addStudent()">Add</button>
     </form>
   </div>
   <div fxFlex="50%">

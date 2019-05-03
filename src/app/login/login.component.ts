@@ -4,6 +4,7 @@ import {AuthService} from '../auth.service';
 import {MatSnackBar} from '@angular/material';
 import {Router} from '@angular/router';
 import {AppConstants} from '../app.constants';
+import {CommonService} from '../common.service';
 
 @Component({
   selector: 'app-login',
@@ -18,7 +19,7 @@ export class LoginComponent implements OnInit {
   password = new FormControl('', Validators.required);
 
   constructor(formBuilder: FormBuilder, private authService: AuthService,
-              private snackBar: MatSnackBar, private router: Router) {
+              private snackBar: MatSnackBar, private router: Router, private commonService: CommonService) {
     this.loginForm = formBuilder.group({
       username: this.username,
       password: this.password
@@ -40,6 +41,10 @@ export class LoginComponent implements OnInit {
     this.authService.doLogin(req).subscribe(res => {
       if (res['valid']) {
         const userType = res['userType'];
+
+        const user = res['user'];
+        this.commonService.loggedInUser = user;
+
         localStorage.setItem(AppConstants.USER_TYPE, userType);
         if (userType === AppConstants.UNIVERSITY) {
           this.router.navigateByUrl('/home/university');
