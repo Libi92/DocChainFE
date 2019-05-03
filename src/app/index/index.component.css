@@ -32,3 +32,11 @@ swiper {
 .slide3 {
   background-image: url('assets/images/slide/slide3.jpg');
 }
+
+.content-title {
+  margin-left: 40px;
+}
+
+.circle-container circle-progress {
+  margin: 0 auto;
+}

@@ -1,0 +1,25 @@
+<div class="register-container">
+  <h3>Register to DocChain</h3>
+  <form class="register-form" [formGroup]="registerForm">
+    <mat-form-field class="full-width">
+      <input matInput placeholder="Name" formControlName="name">
+    </mat-form-field>
+
+    <mat-form-field class="full-width">
+      <mat-label>User Type</mat-label>
+      <select matNativeControl formControlName="userType">
+        <option value="university">University</option>
+        <option value="company">Company</option>
+      </select>
+    </mat-form-field>
+
+    <mat-form-field class="full-width">
+      <input matInput placeholder="Username" formControlName="username">
+    </mat-form-field>
+
+    <mat-form-field class="full-width">
+      <input type="password" matInput placeholder="Password" formControlName="password">
+    </mat-form-field>
+    <button mat-button color="primary" (click)="doRegister()">Register</button>
+  </form>
+</div>

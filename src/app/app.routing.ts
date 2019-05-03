@@ -4,6 +4,7 @@ import {FullComponent} from './layouts/full/full.component';
 import {LoginComponent} from './login/login.component';
 import {LandingComponent} from './landing/landing.component';
 import {IndexComponent} from './index/index.component';
+import {RegisterComponent} from './register/register.component';
 
 export const AppRoutes: Routes = [
   {
@@ -17,6 +18,10 @@ export const AppRoutes: Routes = [
       {
         path: 'login',
         component: LoginComponent
+      },
+      {
+        path: 'register',
+        component: RegisterComponent
       }
     ]
   },

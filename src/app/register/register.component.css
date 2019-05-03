@@ -1,12 +1,12 @@
-.login-container {
+.register-container {
   padding-top: 60px;
 }
 
-.login-container h3 {
+.register-container h3 {
   text-align: center;
 }
 
-.login-form {
+.register-form {
   min-width: 150px;
   max-width: 500px;
   width: 100%;

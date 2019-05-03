@@ -1,26 +1,27 @@
-import * as $ from 'jquery';
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-import { RouterModule } from '@angular/router';
-import { FormsModule } from '@angular/forms';
-import { HttpClientModule, HttpClient } from '@angular/common/http';
-import { LocationStrategy, PathLocationStrategy } from '@angular/common';
-import { AppRoutes } from './app.routing';
-import { AppComponent } from './app.component';
+import {BrowserModule} from '@angular/platform-browser';
+import {NgModule} from '@angular/core';
+import {RouterModule} from '@angular/router';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {HttpClientModule} from '@angular/common/http';
+import {LocationStrategy, PathLocationStrategy} from '@angular/common';
+import {AppRoutes} from './app.routing';
+import {AppComponent} from './app.component';
 
-import { FlexLayoutModule } from '@angular/flex-layout';
-import { FullComponent } from './layouts/full/full.component';
-import { AppHeaderComponent } from './layouts/full/header/header.component';
-import { AppSidebarComponent } from './layouts/full/sidebar/sidebar.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { DemoMaterialModule } from './demo-material-module';
+import {FlexLayoutModule} from '@angular/flex-layout';
+import {FullComponent} from './layouts/full/full.component';
+import {AppHeaderComponent} from './layouts/full/header/header.component';
+import {AppSidebarComponent} from './layouts/full/sidebar/sidebar.component';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {DemoMaterialModule} from './demo-material-module';
 
-import { SharedModule } from './shared/shared.module';
-import { SpinnerComponent } from './shared/spinner.component';
-import { LoginComponent } from './login/login.component';
-import { LandingComponent } from './landing/landing.component';
-import { IndexComponent } from './index/index.component';
-import { SwiperModule } from 'angular2-useful-swiper';
+import {SharedModule} from './shared/shared.module';
+import {SpinnerComponent} from './shared/spinner.component';
+import {LoginComponent} from './login/login.component';
+import {LandingComponent} from './landing/landing.component';
+import {IndexComponent} from './index/index.component';
+import {SwiperModule} from 'angular2-useful-swiper';
+import {NgCircleProgressModule} from 'ng-circle-progress';
+import {RegisterComponent} from './register/register.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { SwiperModule } from 'angular2-useful-swiper';
     AppSidebarComponent,
     LoginComponent,
     LandingComponent,
-    IndexComponent
+    IndexComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
@@ -42,6 +44,8 @@ import { SwiperModule } from 'angular2-useful-swiper';
     HttpClientModule,
     SharedModule,
     SwiperModule,
+    ReactiveFormsModule,
+    NgCircleProgressModule.forRoot({}),
     RouterModule.forRoot(AppRoutes)
   ],
   providers: [
@@ -52,4 +56,5 @@ import { SwiperModule } from 'angular2-useful-swiper';
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule {
+}

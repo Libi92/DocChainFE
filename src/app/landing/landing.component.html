@@ -7,7 +7,7 @@
     <!-- Logo - style you can find in header.scss -->
     <!-- ============================================================== -->
     <div class="navbar-header">
-      <a class="navbar-brand" href="index.html">
+      <a class="navbar-brand" href="/">
         <!-- Logo icon --><b>
         <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
         <!-- Dark Logo icon -->
@@ -18,11 +18,26 @@
         <!--End Logo icon -->
         <!-- Logo text -->
         <span fxShow="false" fxShow.gt-xs>
-                 <!-- dark Logo text -->
-                 <img src="assets/images/logo-text.png" alt="homepage" class="dark-logo">
+          <!-- dark Logo text -->
+          <img src="assets/images/logo-text.png" alt="homepage" class="dark-logo">
           <!-- Light Logo text -->
-                 <img src="assets/images/logo-light-text.png" class="light-logo" alt="homepage">
-                </span> </a>
+          <img src="assets/images/logo-light-text.png" class="light-logo" alt="homepage">
+        </span>
+      </a>
+
+      <div fxFlex fxLayout fxLayoutAlign="end" fxHide.xs>
+        <ul fxLayout fxLayoutGap="15px" class="navigation-items">
+          <li>
+            <a routerLink="/">Home</a>
+          </li>
+          <li>
+            <a routerLink="/login">Login</a>
+          </li>
+          <li>
+            <a routerLink="/register">Register</a>
+          </li>
+        </ul>
+      </div>
     </div>
 
     <span fxFlex></span>
