@@ -1,3 +1,32 @@
-<p>
-  employee works!
-</p>
+<div class="container box"
+     fxLayout="column"
+     fxLayoutAlign="center"
+     fxLayoutGap="10px">
+  <div fxFlex="50%">
+    <h3>Add New Employee</h3>
+    <form>
+      <mat-form-field class="full-width">
+        <input matInput placeholder="Name">
+      </mat-form-field>
+
+      <mat-form-field class="full-width">
+        <input matInput placeholder="Department">
+      </mat-form-field>
+
+      <mat-form-field class="full-width">
+        <input matInput placeholder="Role">
+      </mat-form-field>
+
+      <mat-form-field class="full-width">
+        <input matInput placeholder="Experience">
+      </mat-form-field>
+
+      <button mat-button color="primary">Add</button>
+    </form>
+  </div>
+  <div fxFlex="50%">
+    <h3>All Employees</h3>
+    <hr/>
+  </div>
+</div>
+

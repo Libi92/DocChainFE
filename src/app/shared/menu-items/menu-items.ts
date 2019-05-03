@@ -54,15 +54,15 @@ const MENUITEMS = [
 ];
 
 const UNIVERSITY_MENU = [
-  {state: 'student', name: 'Students', type: 'link', icon: 'person_outline'},
-  {state: 'certificate', name: 'Certificates', type: 'link', icon: 'view_comfy'},
-  {state: 'settings', name: 'Settings', type: 'link', icon: 'av_timer'}
+  {state: 'university/student', name: 'Students', type: 'link', icon: 'person_outline'},
+  {state: 'university/certificate', name: 'Certificates', type: 'link', icon: 'view_comfy'},
+  {state: 'university/settings', name: 'Settings', type: 'link', icon: 'av_timer'}
 ];
 
 const COMPANY_MENU = [
-  {state: 'employee', name: 'Employee', type: 'link', icon: 'person_outline'},
-  {state: 'certificate', name: 'Certificates', type: 'link', icon: 'view_comfy'},
-  {state: 'settings', name: 'Settings', type: 'link', icon: 'av_timer'}
+  {state: 'company/employee', name: 'Employee', type: 'link', icon: 'person_outline'},
+  {state: 'company/certificate', name: 'Certificates', type: 'link', icon: 'view_comfy'},
+  {state: 'company/settings', name: 'Settings', type: 'link', icon: 'av_timer'}
 ];
 
 @Injectable()

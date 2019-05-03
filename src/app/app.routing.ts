@@ -26,6 +26,16 @@ export const AppRoutes: Routes = [
     ]
   },
   {
+    path: '',
+    component: FullComponent,
+    children: [
+      {
+        path: 'dashboard',
+        loadChildren: './starter/starter.module#StarterModule'
+      }
+    ]
+  },
+  {
     path: 'home',
     component: FullComponent,
     children: [
