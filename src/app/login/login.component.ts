@@ -3,6 +3,7 @@ import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {AuthService} from '../auth.service';
 import {MatSnackBar} from '@angular/material';
 import {Router} from '@angular/router';
+import {AppConstants} from '../app.constants';
 
 @Component({
   selector: 'app-login',
@@ -38,7 +39,13 @@ export class LoginComponent implements OnInit {
 
     this.authService.doLogin(req).subscribe(res => {
       if (res['valid']) {
-        this.router.navigateByUrl('/dashboard');
+        const userType = res['userType'];
+        localStorage.setItem(AppConstants.USER_TYPE, userType);
+        if (userType === AppConstants.UNIVERSITY) {
+          this.router.navigateByUrl('/home/university');
+        } else if (userType === AppConstants.COMPANY) {
+          this.router.navigateByUrl('/home/company');
+        }
       } else {
         this.snackBar.open('Invalid Login',
           '', {duration: 3000}

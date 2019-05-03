@@ -1,22 +1,16 @@
-import {
-  ChangeDetectorRef,
-  Component,
-  NgZone,
-  OnDestroy,
-  ViewChild,
-  HostListener,
-  Directive,
-  AfterViewInit
-} from '@angular/core';
-import { MediaMatcher } from '@angular/cdk/layout';
-import { MenuItems } from '../../../shared/menu-items/menu-items';
+import {ChangeDetectorRef, Component, OnDestroy, OnInit} from '@angular/core';
+import {MediaMatcher} from '@angular/cdk/layout';
+import {MenuItems} from '../../../shared/menu-items/menu-items';
+import {AppConstants} from '../../../app.constants';
+
 @Component({
   selector: 'app-sidebar',
   templateUrl: './sidebar.component.html',
   styleUrls: []
 })
-export class AppSidebarComponent implements OnDestroy {
+export class AppSidebarComponent implements OnDestroy, OnInit {
   mobileQuery: MediaQueryList;
+  userType: string;
 
   private _mobileQueryListener: () => void;
 
@@ -32,5 +26,9 @@ export class AppSidebarComponent implements OnDestroy {
 
   ngOnDestroy(): void {
     this.mobileQuery.removeListener(this._mobileQueryListener);
+  }
+
+  ngOnInit(): void {
+    this.userType = localStorage.getItem(AppConstants.USER_TYPE);
   }
 }

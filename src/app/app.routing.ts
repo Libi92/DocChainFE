@@ -26,12 +26,16 @@ export const AppRoutes: Routes = [
     ]
   },
   {
-    path: '',
+    path: 'home',
     component: FullComponent,
     children: [
       {
-        path: 'dashboard',
-        loadChildren: './starter/starter.module#StarterModule'
+        path: 'university',
+        loadChildren: './university/university.module#UniversityModule'
+      },
+      {
+        path: 'company',
+        loadChildren: './company/company.module#CompanyModule'
       }
     ]
   }
