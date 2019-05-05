@@ -2,6 +2,8 @@ import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {AuthService} from '../auth.service';
 import {MatSnackBar} from '@angular/material';
+import {BlockchainService} from '../blockchain.service';
+import {AppConstants} from '../app.constants';
 
 @Component({
   selector: 'app-register',
@@ -16,7 +18,10 @@ export class RegisterComponent implements OnInit {
   password = new FormControl('', Validators.required);
   userType = new FormControl('', Validators.required);
 
-  constructor(formBuilder: FormBuilder, private authService: AuthService, private snackBar: MatSnackBar) {
+  constructor(formBuilder: FormBuilder,
+              private authService: AuthService,
+              private blockChainService: BlockchainService,
+              private snackBar: MatSnackBar) {
     this.registerForm = formBuilder.group({
       name: this.name,
       username: this.username,
@@ -38,10 +43,28 @@ export class RegisterComponent implements OnInit {
 
     this.authService.doRegister(req).subscribe(res => {
       if (res['valid']) {
+        this.addEntityInBlockChain(res['user'], this.name.value, this.userType.value);
         this.snackBar.open('New user added',
           '', {duration: 3000}
         );
       }
+    });
+  }
+
+  addEntityInBlockChain(userId, name, userType) {
+    let service = null;
+    if (userType === AppConstants.UNIVERSITY) {
+      service = this.blockChainService.addUniversity(userId, name);
+      service.subscribe(res => {
+        console.log(res);
+      });
+      service = this.blockChainService.addCompany(userId, name);
+    } else {
+      service = this.blockChainService.addCompany(userId, name);
+    }
+
+    service.subscribe(res => {
+      console.log(res);
     });
   }
 

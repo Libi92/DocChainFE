@@ -34,6 +34,15 @@
   <div fxFlex="50%">
     <h3>Registered Students</h3>
     <hr/>
+    <mat-list>
+      <mat-list-item *ngFor="let student of student_list">
+        <h3 matLine> {{student['user']['name']}} </h3>
+        <p matLine>
+          <span> {{student['degree']}}, {{student['department']}} </span>
+          <span class="demo-2"> {{student['college']}} </span>
+        </p>
+      </mat-list-item>
+    </mat-list>
   </div>
 </div>
 

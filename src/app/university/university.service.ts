@@ -15,4 +15,12 @@ export class UniversityService {
   addStudent(user: any): Observable<any> {
     return this.http.post<any>(AppConstants.BASE_URL + UniversityService.STUDENT + '/create', user);
   }
+
+  getStudent(req: any): Observable<any> {
+    return this.http.post<any>(AppConstants.BASE_URL + UniversityService.STUDENT + '/get', req);
+  }
+
+  enrollStudent(req: any): Observable<any> {
+    return this.http.post<any>(AppConstants.BASE_URL + UniversityService.STUDENT + '/enroll', req);
+  }
 }

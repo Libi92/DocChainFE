@@ -2,6 +2,8 @@ import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {UniversityService} from '../university.service';
 import {CommonService} from '../../common.service';
+import {BlockchainService} from '../../blockchain.service';
+import {MatSnackBar} from '@angular/material';
 
 @Component({
   selector: 'app-student',
@@ -11,6 +13,8 @@ import {CommonService} from '../../common.service';
 export class StudentComponent implements OnInit {
   studentForm: FormGroup;
 
+  student_list = null;
+
   name = new FormControl('', Validators.required);
   registerNo = new FormControl('', Validators.required);
   department = new FormControl('', Validators.required);
@@ -18,8 +22,11 @@ export class StudentComponent implements OnInit {
   college = new FormControl('', Validators.required);
   year = new FormControl('', Validators.required);
 
-  constructor(formBuilder: FormBuilder, private universityService: UniversityService,
-              private commonService: CommonService) {
+  constructor(formBuilder: FormBuilder,
+              private universityService: UniversityService,
+              private blockChainService: BlockchainService,
+              private commonService: CommonService,
+              private snackBar: MatSnackBar) {
     this.studentForm = formBuilder.group({
       'name': this.name,
       'registerNo': this.registerNo,
@@ -31,6 +38,7 @@ export class StudentComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.getStudent();
   }
 
   addStudent() {
@@ -46,8 +54,25 @@ export class StudentComponent implements OnInit {
 
     this.universityService.addStudent(req).subscribe(res => {
       if (res['status']) {
-
+        this.addStudentToBlockchain(res['student'], this.name.value);
       }
+    });
+  }
+
+  addStudentToBlockchain(userId, name) {
+    this.blockChainService.addStudent(userId, name).subscribe(res => {
+      this.snackBar.open('New student added',
+        '', {duration: 3000});
+      this.getStudent();
+    });
+  }
+
+  getStudent() {
+    const req = {
+      'university': this.commonService.loggedInUser['_id']
+    };
+    this.universityService.getStudent(req).subscribe(res => {
+      this.student_list = res['data'];
     });
   }
 

@@ -3,8 +3,18 @@
      fxLayoutAlign="center"
      fxLayoutGap="10px">
   <div fxFlex="50%">
-    <h3>Pending Certificates</h3>
+    <h3>Pending Students</h3>
     <hr/>
+    <mat-list>
+      <mat-list-item *ngFor="let student of pending_students">
+        <h3 matLine> {{student['user']['name']}} </h3>
+        <p matLine>
+          <span> {{student['degree']}}, {{student['department']}} </span>
+          <span class="demo-2"> {{student['college']}} </span>
+        </p>
+        <button mat-raised-button color="primary" (click)="enroll(student['userId'], student['degree'])">Enroll</button>
+      </mat-list-item>
+    </mat-list>
   </div>
   <div fxFlex="50%">
     <h3>Issued Students</h3>
