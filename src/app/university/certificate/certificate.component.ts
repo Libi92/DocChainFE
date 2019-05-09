@@ -2,7 +2,8 @@ import {Component, OnInit} from '@angular/core';
 import {UniversityService} from '../university.service';
 import {BlockchainService} from '../../blockchain.service';
 import {CommonService} from '../../common.service';
-import {MatSnackBar} from '@angular/material';
+import {MatDialog, MatSnackBar} from '@angular/material';
+import {CertificateDialogComponent} from '../dialog-component/certificate-dialog.component';
 
 @Component({
   selector: 'app-certificate',
@@ -16,7 +17,8 @@ export class CertificateComponent implements OnInit {
   constructor(private universityService: UniversityService,
               private blockChainService: BlockchainService,
               private commonService: CommonService,
-              private snackBar: MatSnackBar) {
+              private snackBar: MatSnackBar,
+              public dialog: MatDialog) {
   }
 
   ngOnInit() {
@@ -33,14 +35,20 @@ export class CertificateComponent implements OnInit {
   }
 
   enroll(userId, degree) {
-    const req = {
-      'user': userId,
-      'degree': degree,
-      'university': this.commonService.loggedInUser['_id']
-    };
+    const dialogRef = this.dialog.open(CertificateDialogComponent, {
+      width: '250px'
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      const req = {
+        'user': userId,
+        'degree': degree,
+        'marks': result,
+        'university': this.commonService.loggedInUser['_id']
+      };
 
-    this.universityService.enrollStudent(req).subscribe(res => {
-      this.addExperience(res['experience'], res['certificate']);
+      this.universityService.enrollStudent(req).subscribe(res => {
+        this.addExperience(res['experience'], res['certificate']);
+      });
     });
   }
 

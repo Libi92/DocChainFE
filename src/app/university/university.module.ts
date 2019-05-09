@@ -7,6 +7,7 @@ import {UniversityRoutes} from './university.routing';
 import {DemoMaterialModule} from '../demo-material-module';
 import {SettingsComponent} from './settings/settings.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {CertificateDialogComponent} from './dialog-component/certificate-dialog.component';
 
 @NgModule({
   imports: [
@@ -16,7 +17,8 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
     ReactiveFormsModule,
     RouterModule.forChild(UniversityRoutes)
   ],
-  declarations: [StudentComponent, CertificateComponent, SettingsComponent]
+  declarations: [StudentComponent, CertificateComponent, SettingsComponent, CertificateDialogComponent],
+  entryComponents: [CertificateDialogComponent]
 })
 export class UniversityModule {
 }
