@@ -17,8 +17,16 @@
     </mat-list>
   </div>
   <div fxFlex="50%">
-    <h3>Issued Students</h3>
+    <h3>Enrolled Certificates</h3>
     <hr/>
+    <mat-list-item *ngFor="let certificate of certificates" style="cursor: pointer"
+                   (click)="onCertificateSelect(certificate)">
+      <h3 matLine> {{certificate['student']['user']['name']}} </h3>
+      <p matLine>
+        <span> {{certificate['student']['degree']}}, {{certificate['student']['department']}} </span>
+        <span class="demo-2"> {{certificate['student']['college']}} </span>
+      </p>
+    </mat-list-item>
   </div>
 </div>
 

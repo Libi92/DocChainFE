@@ -4,6 +4,7 @@ import {BlockchainService} from '../../blockchain.service';
 import {CommonService} from '../../common.service';
 import {MatDialog, MatSnackBar} from '@angular/material';
 import {CertificateDialogComponent} from '../dialog-component/certificate-dialog.component';
+import {DialogCertificateComponent} from '../dialog-certificate/dialog-certificate.component';
 
 @Component({
   selector: 'app-certificate',
@@ -13,6 +14,7 @@ import {CertificateDialogComponent} from '../dialog-component/certificate-dialog
 export class CertificateComponent implements OnInit {
 
   pending_students = null;
+  certificates = null;
 
   constructor(private universityService: UniversityService,
               private blockChainService: BlockchainService,
@@ -23,6 +25,7 @@ export class CertificateComponent implements OnInit {
 
   ngOnInit() {
     this.getStudent();
+    this.getEnrolledStudent();
   }
 
   getStudent() {
@@ -31,6 +34,22 @@ export class CertificateComponent implements OnInit {
     };
     this.universityService.getStudent(req).subscribe(res => {
       this.pending_students = res['data'];
+    });
+  }
+
+  getEnrolledStudent() {
+    const req = {
+      'university': this.commonService.loggedInUser['_id']
+    };
+    this.universityService.getEnrolledStudents(req).subscribe(res => {
+      this.certificates = res;
+    });
+  }
+
+  onCertificateSelect(certificate) {
+    const dialogRef = this.dialog.open(DialogCertificateComponent, {
+      width: '540px',
+      data: certificate
     });
   }
 

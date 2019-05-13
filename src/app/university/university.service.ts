@@ -23,4 +23,8 @@ export class UniversityService {
   enrollStudent(req: any): Observable<any> {
     return this.http.post<any>(AppConstants.BASE_URL + UniversityService.STUDENT + '/enroll', req);
   }
+
+  getEnrolledStudents(req: any): Observable<any> {
+    return this.http.post<any>(AppConstants.BASE_URL + UniversityService.STUDENT + '/enroll/get', req);
+  }
 }
