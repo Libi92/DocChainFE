@@ -1,3 +1,7 @@
-<p>
-  home works!
-</p>
+<mat-form-field class="example-full-width">
+  <input matInput placeholder="User Identification No" #uId>
+</mat-form-field>
+<button mat-raised-button color="primary" (click)="findUser(uId.value)">Find</button>
+<button mat-raised-button *ngIf="userId" color="primary" (click)="hire()">Hire</button>
+
+<app-user-profile *ngIf="userId" [userId]="userId"></app-user-profile>

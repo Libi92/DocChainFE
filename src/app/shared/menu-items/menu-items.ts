@@ -60,6 +60,7 @@ const UNIVERSITY_MENU = [
 ];
 
 const COMPANY_MENU = [
+  {state: 'company', name: 'Home', type: 'link', icon: 'home'},
   {state: 'company/employee', name: 'Employee', type: 'link', icon: 'person_outline'},
   {state: 'company/certificate', name: 'Certificates', type: 'link', icon: 'view_comfy'},
   {state: 'company/settings', name: 'Settings', type: 'link', icon: 'av_timer'}

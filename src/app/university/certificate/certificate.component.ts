@@ -4,7 +4,7 @@ import {BlockchainService} from '../../blockchain.service';
 import {CommonService} from '../../common.service';
 import {MatDialog, MatSnackBar} from '@angular/material';
 import {CertificateDialogComponent} from '../dialog-component/certificate-dialog.component';
-import {DialogCertificateComponent} from '../dialog-certificate/dialog-certificate.component';
+import {DialogCertificateComponent} from '../../shared/dialog-certificate/dialog-certificate.component';
 
 @Component({
   selector: 'app-certificate',

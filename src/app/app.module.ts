@@ -22,6 +22,7 @@ import {IndexComponent} from './index/index.component';
 import {SwiperModule} from 'angular2-useful-swiper';
 import {NgCircleProgressModule} from 'ng-circle-progress';
 import {RegisterComponent} from './register/register.component';
+import {DialogCertificateComponent} from './shared/dialog-certificate/dialog-certificate.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import {RegisterComponent} from './register/register.component';
     LoginComponent,
     LandingComponent,
     IndexComponent,
-    RegisterComponent
+    RegisterComponent,
+    DialogCertificateComponent
   ],
   imports: [
     BrowserModule,
@@ -54,6 +56,7 @@ import {RegisterComponent} from './register/register.component';
       useClass: PathLocationStrategy
     }
   ],
+  entryComponents: [DialogCertificateComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule {

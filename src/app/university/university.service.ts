@@ -7,7 +7,7 @@ import {AppConstants} from '../app.constants';
   providedIn: 'root'
 })
 export class UniversityService {
-  private static STUDENT = 'user';
+  private static STUDENT = 'student';
 
   constructor(private http: HttpClient) {
   }

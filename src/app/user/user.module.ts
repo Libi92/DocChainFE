@@ -4,6 +4,7 @@ import {HomeComponent} from './home/home.component';
 import {RouterModule} from '@angular/router';
 import {UserRoutes} from './user.routing';
 import {DemoMaterialModule} from '../demo-material-module';
+import {UserProfileComponent} from '../shared/user-profile/user-profile.component';
 
 @NgModule({
   imports: [
@@ -11,7 +12,7 @@ import {DemoMaterialModule} from '../demo-material-module';
     DemoMaterialModule,
     RouterModule.forChild(UserRoutes)
   ],
-  declarations: [HomeComponent]
+  declarations: [HomeComponent, UserProfileComponent]
 })
 export class UserModule {
 }

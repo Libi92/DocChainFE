@@ -2,11 +2,12 @@ import {Routes} from '@angular/router';
 import {EmployeeComponent} from './employee/employee.component';
 import {CertificateComponent} from './certificate/certificate.component';
 import {SettingsComponent} from './settings/settings.component';
+import {HomeComponent} from './home/home.component';
 
 export const CompanyRoutes: Routes = [
   {
     path: '',
-    redirectTo: 'employee'
+    component: HomeComponent
   },
   {
     path: 'employee',

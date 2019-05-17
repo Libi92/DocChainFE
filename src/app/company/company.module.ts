@@ -6,7 +6,8 @@ import {RouterModule} from '@angular/router';
 import {CompanyRoutes} from './company.routing';
 import {SettingsComponent} from './settings/settings.component';
 import {DemoMaterialModule} from '../demo-material-module';
-import { HomeComponent } from './home/home.component';
+import {HomeComponent} from './home/home.component';
+import {UserProfileComponent} from '../shared/user-profile/user-profile.component';
 
 @NgModule({
   imports: [
@@ -14,7 +15,7 @@ import { HomeComponent } from './home/home.component';
     DemoMaterialModule,
     RouterModule.forChild(CompanyRoutes)
   ],
-  declarations: [EmployeeComponent, CertificateComponent, SettingsComponent, HomeComponent]
+  declarations: [EmployeeComponent, CertificateComponent, SettingsComponent, HomeComponent, UserProfileComponent]
 })
 export class CompanyModule {
 }
