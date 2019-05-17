@@ -50,6 +50,8 @@ export class LoginComponent implements OnInit {
           this.router.navigateByUrl('/home/university');
         } else if (userType === AppConstants.COMPANY) {
           this.router.navigateByUrl('/home/company');
+        } else if (userType === AppConstants.USER) {
+          this.router.navigateByUrl('/home/user');
         }
       } else {
         this.snackBar.open('Invalid Login',

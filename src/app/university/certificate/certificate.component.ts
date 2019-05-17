@@ -32,7 +32,7 @@ export class CertificateComponent implements OnInit {
     const req = {
       'university': this.commonService.loggedInUser['_id']
     };
-    this.universityService.getStudent(req).subscribe(res => {
+    this.universityService.getEnrollPendingStudent(req).subscribe(res => {
       this.pending_students = res['data'];
     });
   }
@@ -73,14 +73,16 @@ export class CertificateComponent implements OnInit {
 
   addExperience(expReq, certReq) {
     this.blockChainService.addExperience(expReq).subscribe(res => {
+      this.getEnrolledStudent();
+      this.getStudent();
       this.addCertificate(certReq);
+      this.snackBar.open('Student Enrolled',
+        '', {duration: 3000});
     });
   }
 
   addCertificate(req) {
     this.blockChainService.addCertificate(req).subscribe(res => {
-      this.snackBar.open('Student Enrolled',
-        '', {duration: 3000});
     });
   }
 

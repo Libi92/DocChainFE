@@ -6,6 +6,7 @@ import {RouterModule} from '@angular/router';
 import {CompanyRoutes} from './company.routing';
 import {SettingsComponent} from './settings/settings.component';
 import {DemoMaterialModule} from '../demo-material-module';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   imports: [
@@ -13,7 +14,7 @@ import {DemoMaterialModule} from '../demo-material-module';
     DemoMaterialModule,
     RouterModule.forChild(CompanyRoutes)
   ],
-  declarations: [EmployeeComponent, CertificateComponent, SettingsComponent]
+  declarations: [EmployeeComponent, CertificateComponent, SettingsComponent, HomeComponent]
 })
 export class CompanyModule {
 }

@@ -65,6 +65,11 @@ const COMPANY_MENU = [
   {state: 'company/settings', name: 'Settings', type: 'link', icon: 'av_timer'}
 ];
 
+const USER_MENU = [
+  {state: 'user', name: 'Home', type: 'link', icon: 'person_outline'},
+  {state: 'user/settings', name: 'Settings', type: 'link', icon: 'av_timer'}
+];
+
 @Injectable()
 export class MenuItems {
   getMenuitem(): Menu[] {
@@ -76,6 +81,8 @@ export class MenuItems {
       return UNIVERSITY_MENU;
     } else if (userType === AppConstants.COMPANY) {
       return COMPANY_MENU;
+    } else if (userType === AppConstants.USER) {
+      return USER_MENU;
     }
   }
 }

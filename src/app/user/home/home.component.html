@@ -1,0 +1,25 @@
+<p *ngIf="!profile_data">No certificate issued</p>
+<div *ngIf="profile_data">
+  <div style="float: right">
+    <button mat-raised-button color="primary">Certificate</button>
+  </div>
+  <h3>{{profile_data['student']['user']['name']}}</h3>
+  <mat-list>
+    <mat-list-item> User Identification No: <b>{{profile_data['student']['userId']}}</b></mat-list-item>
+    <mat-list-item> Register No: {{profile_data['student']['registerNo']}}</mat-list-item>
+    <mat-list-item> Department: {{profile_data['student']['department']}}</mat-list-item>
+    <mat-list-item> Degree: {{profile_data['student']['degree']}}</mat-list-item>
+    <mat-list-item> College: {{profile_data['student']['college']}}</mat-list-item>
+    <mat-list-item> Year: {{profile_data['student']['year']}}</mat-list-item>
+    <mat-list-item> University: {{profile_data['university']['name']}}</mat-list-item>
+  </mat-list>
+  <div *ngIf="profile_data['experience'].length > 0">
+    <h4>Experiences</h4>
+    <mat-list>
+      <mat-list-item *ngFor="let experience of profile_data['experience']">
+        <h3 matLine> {{experience['company']['name']}} </h3>
+        <p matLine> {{experience['fromYear']}} - {{experience['toYear']}} </p>
+      </mat-list-item>
+    </mat-list>
+  </div>
+</div>

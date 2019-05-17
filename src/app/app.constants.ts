@@ -6,4 +6,5 @@ export class AppConstants {
 
   public static UNIVERSITY = 'university';
   public static COMPANY = 'company';
+  public static USER = 'student';
 }

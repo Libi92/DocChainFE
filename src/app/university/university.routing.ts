@@ -6,10 +6,10 @@ import {SettingsComponent} from './settings/settings.component';
 export const UniversityRoutes: Routes = [
   {
     path: '',
-    redirectTo: 'student'
+    redirectTo: 'user'
   },
   {
-    path: 'student',
+    path: 'user',
     component: StudentComponent
   },
   {

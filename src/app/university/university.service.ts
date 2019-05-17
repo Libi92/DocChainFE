@@ -7,7 +7,7 @@ import {AppConstants} from '../app.constants';
   providedIn: 'root'
 })
 export class UniversityService {
-  private static STUDENT = 'student';
+  private static STUDENT = 'user';
 
   constructor(private http: HttpClient) {
   }
@@ -18,6 +18,10 @@ export class UniversityService {
 
   getStudent(req: any): Observable<any> {
     return this.http.post<any>(AppConstants.BASE_URL + UniversityService.STUDENT + '/get', req);
+  }
+
+  getEnrollPendingStudent(req: any): Observable<any> {
+    return this.http.post<any>(AppConstants.BASE_URL + UniversityService.STUDENT + '/enroll/pending', req);
   }
 
   enrollStudent(req: any): Observable<any> {
