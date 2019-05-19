@@ -54,7 +54,7 @@ export class StudentComponent implements OnInit {
 
     this.universityService.addStudent(req).subscribe(res => {
       if (res['status']) {
-        this.addStudentToBlockchain(res['user'], this.name.value);
+        this.addStudentToBlockchain(res['student'], this.name.value);
       }
     });
   }

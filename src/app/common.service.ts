@@ -8,6 +8,7 @@ export class CommonService {
   }
 
   private _loggedInUser;
+  private _settingsUrl;
 
   get loggedInUser() {
     return this._loggedInUser;
@@ -15,5 +16,14 @@ export class CommonService {
 
   set loggedInUser(value) {
     this._loggedInUser = value;
+  }
+
+
+  get settingsUrl() {
+    return this._settingsUrl;
+  }
+
+  set settingsUrl(value) {
+    this._settingsUrl = value;
   }
 }

@@ -8,6 +8,7 @@ import {SettingsComponent} from './settings/settings.component';
 import {DemoMaterialModule} from '../demo-material-module';
 import {HomeComponent} from './home/home.component';
 import {UserProfileComponent} from '../shared/user-profile/user-profile.component';
+import { HireEmployeeComponent } from './hire-employee/hire-employee.component';
 
 @NgModule({
   imports: [
@@ -15,7 +16,8 @@ import {UserProfileComponent} from '../shared/user-profile/user-profile.componen
     DemoMaterialModule,
     RouterModule.forChild(CompanyRoutes)
   ],
-  declarations: [EmployeeComponent, CertificateComponent, SettingsComponent, HomeComponent, UserProfileComponent]
+  declarations: [EmployeeComponent, CertificateComponent, SettingsComponent,
+    HomeComponent, UserProfileComponent, HireEmployeeComponent]
 })
 export class CompanyModule {
 }

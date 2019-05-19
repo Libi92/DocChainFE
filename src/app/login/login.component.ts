@@ -46,12 +46,16 @@ export class LoginComponent implements OnInit {
         this.commonService.loggedInUser = user;
 
         localStorage.setItem(AppConstants.USER_TYPE, userType);
+        localStorage.setItem(AppConstants.USER_NAME, user['name']);
         if (userType === AppConstants.UNIVERSITY) {
           this.router.navigateByUrl('/home/university');
+          this.commonService.settingsUrl = '/home/university/settings';
         } else if (userType === AppConstants.COMPANY) {
           this.router.navigateByUrl('/home/company');
+          this.commonService.settingsUrl = '/home/company/settings';
         } else if (userType === AppConstants.USER) {
           this.router.navigateByUrl('/home/user');
+          this.commonService.settingsUrl = '/home/user/settings';
         }
       } else {
         this.snackBar.open('Invalid Login',

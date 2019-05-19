@@ -11,6 +11,7 @@ import {AppConstants} from '../../../app.constants';
 export class AppSidebarComponent implements OnDestroy, OnInit {
   mobileQuery: MediaQueryList;
   userType: string;
+    userName: string;
 
   private _mobileQueryListener: () => void;
 
@@ -30,5 +31,6 @@ export class AppSidebarComponent implements OnDestroy, OnInit {
 
   ngOnInit(): void {
     this.userType = localStorage.getItem(AppConstants.USER_TYPE);
+    this.userName = localStorage.getItem(AppConstants.USER_NAME);
   }
 }

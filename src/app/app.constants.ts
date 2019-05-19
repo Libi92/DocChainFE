@@ -3,6 +3,7 @@ export class AppConstants {
   public static BLOCKCHAIN_BASE_URL = 'http://127.0.0.1:3000/api/';
 
   public static USER_TYPE = 'userType';
+  public static USER_NAME = 'userName';
 
   public static UNIVERSITY = 'university';
   public static COMPANY = 'company';
