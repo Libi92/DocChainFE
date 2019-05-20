@@ -1,7 +1,4 @@
 import {Component, OnInit} from '@angular/core';
-import {CommonService} from '../../common.service';
-import {CompanyService} from '../company.service';
-import {MatSnackBar} from '@angular/material';
 
 @Component({
   selector: 'app-home',
@@ -11,10 +8,10 @@ import {MatSnackBar} from '@angular/material';
 export class HomeComponent implements OnInit {
 
   userId: string;
+  userData: any;
+  showHireComponent = false;
 
-  constructor(private commonService: CommonService,
-              private companyService: CompanyService,
-              private snackBar: MatSnackBar) {
+  constructor() {
   }
 
   ngOnInit() {
@@ -25,13 +22,10 @@ export class HomeComponent implements OnInit {
   }
 
   hire() {
-    const req = {
-      'userId': this.userId,
-      'companyId': this.commonService.loggedInUser['_id']
-    };
-    this.companyService.hire(req).subscribe(res => {
-      this.snackBar.open('Hired new employee',
-        '', {duration: 3000});
-    });
+    this.showHireComponent = true;
+  }
+
+  onProfileLoad(userData) {
+    this.userData = userData;
   }
 }

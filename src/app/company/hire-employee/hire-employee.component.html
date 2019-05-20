@@ -1,0 +1,24 @@
+<div class="container box"
+     fxLayout="column"
+     fxLayoutAlign="center"
+     fxLayoutGap="10px">
+  <div fxFlex="50%">
+    <h3>Hire New Employee</h3>
+    <form>
+      <mat-form-field class="full-width">
+        <input matInput placeholder="Name" value="{{userData['student']['user']['name']}}">
+      </mat-form-field>
+
+      <mat-form-field class="full-width">
+        <input matInput placeholder="Department" #department>
+      </mat-form-field>
+
+      <mat-form-field class="full-width">
+        <input matInput placeholder="Role" #role>
+      </mat-form-field>
+
+      <button mat-button color="primary" (click)="hire(department.value, role.value)">Hire</button>
+    </form>
+  </div>
+</div>
+

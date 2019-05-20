@@ -1,4 +1,5 @@
 import {Component, OnInit} from '@angular/core';
+import {HomeService} from './home.service';
 
 @Component({
   selector: 'app-index',
@@ -6,7 +7,9 @@ import {Component, OnInit} from '@angular/core';
   styleUrls: ['./index.component.css']
 })
 export class IndexComponent implements OnInit {
-  subTitle = 'Users Joined';
+  subTitleUsers = 'Users Joined';
+  subTitleCertificates = 'Certificates Generated';
+  subTitleEmployees = 'Employees Hired';
   config: SwiperOptions = {
     pagination: '.swiper-pagination',
     paginationClickable: true,
@@ -14,6 +17,10 @@ export class IndexComponent implements OnInit {
     prevButton: '.swiper-button-prev',
     spaceBetween: 30
   };
+
+  noOfCertificates = 0;
+  noOfUsers = 0;
+  noOfEmployees = 0;
 
   slides = [
     {
@@ -36,10 +43,18 @@ export class IndexComponent implements OnInit {
     }
   ];
 
-  constructor() {
+  constructor(private homeService: HomeService) {
   }
 
   ngOnInit() {
+    this.getStatus();
   }
 
+  getStatus() {
+    this.homeService.getStatus({}).subscribe(res => {
+      this.noOfCertificates = res['certificate'];
+      this.noOfUsers = res['users'];
+      this.noOfEmployees = res['employee'];
+    });
+  }
 }

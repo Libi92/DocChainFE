@@ -15,4 +15,8 @@ export class CompanyService {
   hire(req: any): Observable<any> {
     return this.http.post<any>(AppConstants.BASE_URL + CompanyService.COMPANY + '/hire', req);
   }
+
+  getAllEmployee(req: any): Observable<any> {
+    return this.http.post<any>(AppConstants.BASE_URL + CompanyService.COMPANY + '/employees', req);
+  }
 }

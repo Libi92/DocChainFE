@@ -1,4 +1,4 @@
-import {Component, Input, OnInit, ViewEncapsulation} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output, ViewEncapsulation} from '@angular/core';
 import {UserService} from '../../user/user.service';
 import {MatDialog, MatSnackBar} from '@angular/material';
 import {DialogCertificateComponent} from '../dialog-certificate/dialog-certificate.component';
@@ -11,7 +11,8 @@ import {DialogCertificateComponent} from '../dialog-certificate/dialog-certifica
 })
 export class UserProfileComponent implements OnInit {
 
-  @Input() userId: string;
+  @Input('userId') userId: string;
+  @Output() loadCompleted: EventEmitter<any> = new EventEmitter<any>();
 
   profile_data = null;
 
@@ -29,6 +30,8 @@ export class UserProfileComponent implements OnInit {
     this.userService.getProfile(req).subscribe(res => {
       if (res['status'] === 200) {
         this.profile_data = res['data'];
+        this.loadCompleted.emit(this.profile_data);
+
       } else {
         this.snackBar.open('User Profile not found',
           '', {duration: 3000});
