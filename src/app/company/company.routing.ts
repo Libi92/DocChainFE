@@ -7,6 +7,10 @@ import {HomeComponent} from './home/home.component';
 export const CompanyRoutes: Routes = [
   {
     path: '',
+    redirectTo: 'home'
+  },
+  {
+    path: 'home',
     component: HomeComponent
   },
   {

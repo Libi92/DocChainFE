@@ -19,4 +19,8 @@ export class CompanyService {
   getAllEmployee(req: any): Observable<any> {
     return this.http.post<any>(AppConstants.BASE_URL + CompanyService.COMPANY + '/employees', req);
   }
+
+  relieveEmployee(req: any): Observable<any> {
+    return this.http.post<any>(AppConstants.BASE_URL + CompanyService.COMPANY + '/employee/relieve', req);
+  }
 }

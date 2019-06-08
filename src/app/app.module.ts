@@ -23,6 +23,7 @@ import {SwiperModule} from 'angular2-useful-swiper';
 import {NgCircleProgressModule} from 'ng-circle-progress';
 import {RegisterComponent} from './register/register.component';
 import {DialogCertificateComponent} from './shared/dialog-certificate/dialog-certificate.component';
+import {ConfirmDialogComponent} from './shared/confirm-dialog/confirm-dialog.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import {DialogCertificateComponent} from './shared/dialog-certificate/dialog-cer
     LandingComponent,
     IndexComponent,
     RegisterComponent,
-    DialogCertificateComponent
+    DialogCertificateComponent,
+    ConfirmDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -56,7 +58,7 @@ import {DialogCertificateComponent} from './shared/dialog-certificate/dialog-cer
       useClass: PathLocationStrategy
     }
   ],
-  entryComponents: [DialogCertificateComponent],
+  entryComponents: [DialogCertificateComponent, ConfirmDialogComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule {

@@ -10,7 +10,9 @@
       <mat-list-item *ngFor="let employee of employeeList">
         <h3 matLine>{{employee['user']['name']}}</h3>
         <p matLine>{{employee['role']}}, {{employee['department']}}</p>
-        <button mat-raised-button color="primary" (click)="relieveEmployee(employee['user']['_id'])">Relieve</button>
+        <button mat-raised-button color="primary" (click)="relieveEmployee(employee['user']['_id'], employee['_id'])">
+          Relieve
+        </button>
       </mat-list-item>
     </mat-list>
   </div>
