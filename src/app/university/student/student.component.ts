@@ -20,6 +20,7 @@ export class StudentComponent implements OnInit {
   department = new FormControl('', Validators.required);
   degree = new FormControl('', Validators.required);
   college = new FormControl('', Validators.required);
+  adhaar = new FormControl('', Validators.required);
   year = new FormControl('', Validators.required);
 
   constructor(formBuilder: FormBuilder,
@@ -33,6 +34,7 @@ export class StudentComponent implements OnInit {
       'department': this.department,
       'degree': this.degree,
       'college': this.college,
+      'adhaar': this.adhaar,
       'year': this.year
     });
   }
@@ -49,6 +51,7 @@ export class StudentComponent implements OnInit {
       'degree': this.degree.value,
       'college': this.college.value,
       'year': this.year.value,
+      'adhaar': this.adhaar.value,
       'university': this.commonService.loggedInUser._id
     };
 
