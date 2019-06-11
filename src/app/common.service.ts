@@ -1,11 +1,13 @@
 import {Injectable} from '@angular/core';
 import {AppConstants} from './app.constants';
+import {Observable} from 'rxjs';
+import {HttpClient} from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CommonService {
-  constructor() {
+  constructor(private http: HttpClient) {
   }
 
   private _loggedInUser;
@@ -30,5 +32,9 @@ export class CommonService {
   set settingsUrl(value) {
     this._settingsUrl = value;
     localStorage.setItem(AppConstants.SETTINGS_URL, value);
+  }
+
+  updateProfile(req: any): Observable<any> {
+    return this.http.post<any>(AppConstants.BASE_URL + 'user/profile/update', req);
   }
 }

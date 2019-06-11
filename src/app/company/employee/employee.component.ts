@@ -3,6 +3,7 @@ import {CompanyService} from '../company.service';
 import {CommonService} from '../../common.service';
 import {MatDialog} from '@angular/material';
 import {ConfirmDialogComponent} from '../../shared/confirm-dialog/confirm-dialog.component';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-employee',
@@ -15,8 +16,12 @@ export class EmployeeComponent implements OnInit {
 
   constructor(private companyService: CompanyService,
               private commonService: CommonService,
-              public dialog: MatDialog) {
+              public dialog: MatDialog,
+              private router: Router) {
 
+    if (!commonService.loggedInUser) {
+      router.navigateByUrl('/login');
+    }
   }
 
   ngOnInit() {

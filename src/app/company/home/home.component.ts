@@ -1,4 +1,6 @@
 import {Component, OnInit} from '@angular/core';
+import {CommonService} from '../../common.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -11,7 +13,10 @@ export class HomeComponent implements OnInit {
   userData: any;
   showHireComponent = false;
 
-  constructor() {
+  constructor(private commonService: CommonService, private router: Router) {
+    if (!this.commonService.loggedInUser) {
+      this.router.navigateByUrl('/login');
+    }
   }
 
   ngOnInit() {

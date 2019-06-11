@@ -5,6 +5,7 @@ import {CommonService} from '../../common.service';
 import {MatDialog, MatSnackBar} from '@angular/material';
 import {CertificateDialogComponent} from '../dialog-component/certificate-dialog.component';
 import {DialogCertificateComponent} from '../../shared/dialog-certificate/dialog-certificate.component';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-certificate',
@@ -20,7 +21,11 @@ export class CertificateComponent implements OnInit {
               private blockChainService: BlockchainService,
               private commonService: CommonService,
               private snackBar: MatSnackBar,
-              public dialog: MatDialog) {
+              public dialog: MatDialog,
+              private router: Router) {
+    if (!commonService.loggedInUser) {
+      router.navigateByUrl('/login');
+    }
   }
 
   ngOnInit() {

@@ -17,8 +17,4 @@ export class UserService {
   getProfile(user: any): Observable<any> {
     return this.http.post<any>(AppConstants.BASE_URL + UserService.USER + '/' + UserService.PROFILE + '/get', user);
   }
-
-  updateProfile(req: any): Observable<any> {
-    return this.http.post<any>(AppConstants.BASE_URL + 'user/profile/update', req);
-  }
 }

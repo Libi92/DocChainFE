@@ -3,6 +3,7 @@ import {UserService} from '../user.service';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {CommonService} from '../../common.service';
 import {MatSnackBar} from '@angular/material';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-settings',
@@ -15,10 +16,15 @@ export class SettingsComponent implements OnInit {
   name = new FormControl('', Validators.required);
   password = new FormControl('', Validators.required);
 
-  constructor(formBuilder: FormBuilder,
+  constructor(private formBuilder: FormBuilder,
               private userService: UserService,
               private commonService: CommonService,
-              private snackBar: MatSnackBar) {
+              private snackBar: MatSnackBar,
+              private router: Router) {
+    if (!commonService.loggedInUser) {
+      router.navigateByUrl('/login');
+    }
+
     this.profileForm = formBuilder.group({
       name: this.name,
       password: this.password,
@@ -35,7 +41,7 @@ export class SettingsComponent implements OnInit {
       'password': this.password.value
     };
 
-    this.userService.updateProfile(req).subscribe(res => {
+    this.commonService.updateProfile(req).subscribe(res => {
       this.snackBar.open('Profile updated',
         '', {duration: 3000}
       );

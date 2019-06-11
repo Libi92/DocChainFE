@@ -4,6 +4,7 @@ import {UniversityService} from '../university.service';
 import {CommonService} from '../../common.service';
 import {BlockchainService} from '../../blockchain.service';
 import {MatSnackBar} from '@angular/material';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-student',
@@ -27,7 +28,12 @@ export class StudentComponent implements OnInit {
               private universityService: UniversityService,
               private blockChainService: BlockchainService,
               private commonService: CommonService,
-              private snackBar: MatSnackBar) {
+              private snackBar: MatSnackBar,
+              private router: Router) {
+    if (!commonService.loggedInUser) {
+      router.navigateByUrl('/login');
+    }
+
     this.studentForm = formBuilder.group({
       'name': this.name,
       'registerNo': this.registerNo,

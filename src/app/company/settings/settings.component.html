@@ -4,23 +4,19 @@
      fxLayoutGap="10px">
   <div fxFlex="50%">
     <h3>Update Settings</h3>
-    <form>
+    <form [formGroup]="profileForm">
       <mat-form-field class="full-width">
-        <input matInput placeholder="Name">
+        <input matInput placeholder="Name" formControlName="name">
       </mat-form-field>
 
       <mat-form-field class="full-width">
-        <input matInput placeholder="Username">
-      </mat-form-field>
-
-      <mat-form-field class="full-width">
-        <input matInput placeholder="Password">
+        <input matInput placeholder="Password" formControlName="password">
       </mat-form-field>
       <mat-form-field class="full-width">
         <input matInput placeholder="Confirm Password">
       </mat-form-field>
 
-      <button mat-button color="primary">Update</button>
+      <button mat-button color="primary" (click)="updateProfile()">Update</button>
     </form>
   </div>
 
