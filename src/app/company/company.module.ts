@@ -9,11 +9,14 @@ import {DemoMaterialModule} from '../demo-material-module';
 import {HomeComponent} from './home/home.component';
 import {UserProfileComponent} from '../shared/user-profile/user-profile.component';
 import { HireEmployeeComponent } from './hire-employee/hire-employee.component';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 @NgModule({
   imports: [
     CommonModule,
     DemoMaterialModule,
+    FormsModule,
+    ReactiveFormsModule,
     RouterModule.forChild(CompanyRoutes)
   ],
   declarations: [EmployeeComponent, CertificateComponent, SettingsComponent,
