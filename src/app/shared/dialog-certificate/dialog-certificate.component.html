@@ -1,9 +1,26 @@
 <div style="text-align: center">
-  <h2>The {{data['university']['name']}}</h2>
-  <p>This certificate is awarded to</p>
-  <h3>{{data['student']['user']['name']}}</h3>
-  <p>for the degree of</p>
-  <h3>{{data['degree']}} in {{data['student']['department']}}</h3>
-  <p>from {{data['student']['college']}}</p>
-  <p>Dated year {{data['year']}}</p>
+  <div style="width:800px; height:600px; padding:20px; text-align:center; border: 10px solid #787878">
+    <div style="width:750px; height:550px; padding:20px; text-align:center; border: 5px solid #787878">
+      <div align="center">
+
+        <h2 align="center" style="font-size:18px; font-weight:bold">
+          {{data['university']['name']}}
+        </h2>
+        <span style="font-size:38px; font-weight:bold"> Degree Certificate </span>
+        <br><br>
+        <span style="font-size:22px"><i>This is to certify that</i></span>
+        <br><br>
+        <span style="font-size:30px"><b>
+          {{data['student']['user']['name']}}
+        </b></span><br/><br/>
+        <span style="font-size:22px">
+          <i>has completed {{data['degree']}} Degree in {{data['student']['department']}}</i>
+        </span> <br/><br/>
+        <span style="font-size:22px">from {{data['student']['college']}}</span> <br/><br/>
+        <span style="font-size:18px">with CGPA of  <b>9.1</b></span> <br/><br/>
+        <span style="font-size:22px"><i>Dated year {{data['year']}}</i></span>
+
+      </div>
+    </div>
+  </div>
 </div>

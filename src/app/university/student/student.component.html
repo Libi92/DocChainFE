@@ -8,29 +8,51 @@
       <mat-form-field class="full-width">
         <input matInput placeholder="Name" formControlName="name">
       </mat-form-field>
+      <div class="error-text">
+        {{nameError}}
+      </div>
 
       <mat-form-field class="full-width">
         <input matInput placeholder="Reg.No" formControlName="registerNo">
       </mat-form-field>
+      <div class="error-text">
+        {{registerNoError}}
+      </div>
 
       <mat-form-field class="full-width">
         <input matInput placeholder="Department" formControlName="department">
       </mat-form-field>
+      <div class="error-text">
+        {{departmentError}}
+      </div>
 
       <mat-form-field class="full-width">
         <input matInput placeholder="Degree" formControlName="degree">
       </mat-form-field>
+      <div class="error-text">
+        {{degreeError}}
+      </div>
+
       <mat-form-field class="full-width">
         <input matInput placeholder="College" formControlName="college">
       </mat-form-field>
+      <div class="error-text">
+        {{collegeError}}
+      </div>
 
       <mat-form-field class="full-width">
         <input matInput placeholder="Year" formControlName="year">
       </mat-form-field>
+      <div class="error-text">
+        {{yearError}}
+      </div>
 
       <mat-form-field class="full-width">
         <input matInput placeholder="Adhaar" formControlName="adhaar">
       </mat-form-field>
+      <div class="error-text">
+        {{adhaarError}}
+      </div>
 
       <button mat-button color="primary" (click)="addStudent()">Add</button>
     </form>

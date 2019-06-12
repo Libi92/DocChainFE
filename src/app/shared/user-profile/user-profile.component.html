@@ -18,7 +18,7 @@
     <mat-list>
       <mat-list-item *ngFor="let experience of profile_data['experience']">
         <h3 matLine> {{experience['company']['name']}} </h3>
-        <p matLine> {{experience['fromYear']}} - {{experience['toYear']}} </p>
+        <p matLine> {{experience['fromDate']}} to {{experience['toDate']}} </p>
       </mat-list-item>
     </mat-list>
   </div>

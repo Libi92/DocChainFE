@@ -4,6 +4,16 @@
     <mat-form-field class="full-width">
       <input matInput placeholder="Name" formControlName="name">
     </mat-form-field>
+    <div class="error-text">
+      {{nameError}}
+    </div>
+
+    <mat-form-field class="full-width">
+      <input matInput placeholder="Affiliation No" formControlName="afflNo">
+    </mat-form-field>
+    <div class="error-text">
+      {{afflNoError}}
+    </div>
 
     <mat-form-field class="full-width">
       <mat-label>User Type</mat-label>
@@ -12,14 +22,23 @@
         <option value="company">Company</option>
       </select>
     </mat-form-field>
+    <div class="error-text">
+      {{userTypeError}}
+    </div>
 
     <mat-form-field class="full-width">
       <input matInput placeholder="Username" formControlName="username">
     </mat-form-field>
+    <div class="error-text">
+      {{usernameError}}
+    </div>
 
     <mat-form-field class="full-width">
       <input type="password" matInput placeholder="Password" formControlName="password">
     </mat-form-field>
+    <div class="error-text">
+      {{passwordError}}
+    </div>
     <button mat-button color="primary" (click)="doRegister()">Register</button>
   </form>
 </div>

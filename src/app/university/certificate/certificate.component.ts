@@ -53,7 +53,7 @@ export class CertificateComponent implements OnInit {
 
   onCertificateSelect(certificate) {
     const dialogRef = this.dialog.open(DialogCertificateComponent, {
-      width: '540px',
+      width: '860px',
       data: certificate
     });
   }

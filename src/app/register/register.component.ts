@@ -14,9 +14,16 @@ export class RegisterComponent implements OnInit {
 
   registerForm: FormGroup;
   name = new FormControl('', Validators.required);
+  afflNo = new FormControl('', Validators.required);
   username = new FormControl('', Validators.required);
   password = new FormControl('', Validators.required);
   userType = new FormControl('', Validators.required);
+
+  nameError: string;
+  afflNoError: string;
+  userTypeError: string;
+  usernameError: string;
+  passwordError: string;
 
   constructor(formBuilder: FormBuilder,
               private authService: AuthService,
@@ -24,6 +31,7 @@ export class RegisterComponent implements OnInit {
               private snackBar: MatSnackBar) {
     this.registerForm = formBuilder.group({
       name: this.name,
+      afflNo: this.afflNo,
       username: this.username,
       password: this.password,
       userType: this.userType
@@ -34,11 +42,55 @@ export class RegisterComponent implements OnInit {
   }
 
   doRegister() {
+
+    const name = this.name.value;
+    const afflNo = this.afflNo.value;
+    const username = this.username.value;
+    const password = this.password.value;
+    const userType = this.userType.value;
+
+    let valid = true;
+    if (!name) {
+      this.nameError = '*name cannot be empty';
+      valid = false;
+    } else {
+      this.nameError = null;
+    }
+    if (!afflNo) {
+      this.afflNoError = '*cannot be empty';
+      valid = false;
+    } else {
+      this.afflNoError = null;
+    }
+    if (!username) {
+      this.usernameError = '*username cannot be empty';
+      valid = false;
+    } else {
+      this.usernameError = null;
+    }
+    if (!password) {
+      this.passwordError = '*password cannot be empty';
+      valid = false;
+    } else {
+      this.passwordError = null;
+    }
+    if (!userType) {
+      this.userTypeError = '*select a userType';
+      valid = false;
+    } else {
+      this.userTypeError = null;
+    }
+
+    if (!valid) {
+      return;
+    }
+
     const req = {
-      'name': this.name.value,
-      'username': this.username.value,
-      'password': this.password.value,
-      'userType': this.userType.value
+      'name': name,
+      'afflNo': afflNo,
+      'username': username,
+      'password': password,
+      'userType': userType
     };
 
     this.authService.doRegister(req).subscribe(res => {

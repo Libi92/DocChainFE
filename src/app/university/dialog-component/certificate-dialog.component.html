@@ -5,4 +5,9 @@
 <mat-form-field class="full-width">
   <input matInput [(ngModel)]="marks" placeholder="CGPA">
 </mat-form-field>
+
+<div class="error-text">
+  {{markError}}
+</div>
+
 <button matInput class="mat-button" (click)="onAdd()">Add</button>

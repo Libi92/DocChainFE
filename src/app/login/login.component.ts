@@ -14,6 +14,8 @@ import {CommonService} from '../common.service';
 export class LoginComponent implements OnInit {
 
   loginForm: FormGroup;
+  usernameError: string;
+  passwordError: string;
 
   username = new FormControl('', Validators.required);
   password = new FormControl('', Validators.required);
@@ -32,6 +34,24 @@ export class LoginComponent implements OnInit {
   doLogin() {
     const username = this.username.value;
     const password = this.password.value;
+
+    let valid = true;
+    if (!username) {
+      this.usernameError = '*username cannot be empty';
+      valid = false;
+    } else {
+      this.usernameError = null;
+    }
+    if (!password) {
+      this.passwordError = '*password cannot be empty';
+      valid = false;
+    } else {
+      this.passwordError = null;
+    }
+
+    if (!valid) {
+      return;
+    }
 
     const req = {
       'username': username,

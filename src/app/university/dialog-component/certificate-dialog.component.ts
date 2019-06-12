@@ -8,7 +8,8 @@ import {MatDialogRef} from '@angular/material';
 })
 export class CertificateDialogComponent implements OnInit {
 
-  marks: string;
+  marks: any;
+  markError: string;
 
   constructor(
     public dialogRef: MatDialogRef<CertificateDialogComponent>
@@ -19,6 +20,24 @@ export class CertificateDialogComponent implements OnInit {
   }
 
   onAdd() {
+    let valid = true;
+    if (!this.marks) {
+      this.markError = '*cannot be empty';
+      valid = false;
+    } else if (isNaN(this.marks)) {
+      this.markError = '*should be a number';
+      valid = false;
+    } else if (Number(this.marks) < 0 || Number(this.marks) > 10) {
+      this.markError = '*should be between 0 and 10';
+      valid = false;
+    } else {
+      this.markError = null;
+    }
+
+    if (!valid) {
+      return;
+    }
+
     this.dialogRef.close(this.marks);
   }
 

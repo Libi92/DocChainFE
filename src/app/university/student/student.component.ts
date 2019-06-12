@@ -24,6 +24,14 @@ export class StudentComponent implements OnInit {
   adhaar = new FormControl('', Validators.required);
   year = new FormControl('', Validators.required);
 
+  nameError: string;
+  registerNoError: string;
+  departmentError: string;
+  degreeError: string;
+  collegeError: string;
+  yearError: string;
+  adhaarError: string;
+
   constructor(formBuilder: FormBuilder,
               private universityService: UniversityService,
               private blockChainService: BlockchainService,
@@ -50,14 +58,82 @@ export class StudentComponent implements OnInit {
   }
 
   addStudent() {
+    const name = this.name.value;
+    const registerNo = this.registerNo.value;
+    const department = this.department.value;
+    const degree = this.degree.value;
+    const college = this.college.value;
+    const year = this.year.value;
+    const adhaar = this.adhaar.value;
+
+    let valid = true;
+    if (!name) {
+      this.nameError = '*name cannot be empty';
+      valid = false;
+    } else {
+      this.nameError = null;
+    }
+
+    if (!registerNo) {
+      this.registerNoError = '*registerNo cannot be empty';
+      valid = false;
+    } else {
+      this.registerNoError = null;
+    }
+
+    if (!department) {
+      this.departmentError = '*department cannot be empty';
+      valid = false;
+    } else {
+      this.departmentError = null;
+    }
+
+    if (!degree) {
+      this.degreeError = '*degree cannot be empty';
+      valid = false;
+    } else {
+      this.degreeError = null;
+    }
+
+    if (!college) {
+      this.collegeError = '*college cannot be empty';
+      valid = false;
+    } else {
+      this.collegeError = null;
+    }
+
+    if (!year) {
+      this.yearError = '*year cannot be empty';
+      valid = false;
+    } else if (isNaN(year)) {
+      this.yearError = '*year should be a number';
+      valid = false;
+    } else {
+      this.yearError = null;
+    }
+
+    if (!adhaar) {
+      this.adhaarError = '*adhaar cannot be empty';
+      valid = false;
+    } else if (adhaar.length !== 12) {
+      this.adhaarError = '*adhaar should be 12 digit';
+      valid = false;
+    } else {
+      this.adhaarError = null;
+    }
+
+    if (!valid) {
+      return;
+    }
+
     const req = {
-      'name': this.name.value,
-      'registerNo': this.registerNo.value,
-      'department': this.department.value,
-      'degree': this.degree.value,
-      'college': this.college.value,
-      'year': this.year.value,
-      'adhaar': this.adhaar.value,
+      'name': name,
+      'registerNo': registerNo,
+      'department': department,
+      'degree': degree,
+      'college': college,
+      'year': year,
+      'adhaar': adhaar,
       'university': this.commonService.loggedInUser._id
     };
 
