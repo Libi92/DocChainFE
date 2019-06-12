@@ -5,18 +5,21 @@ import {RouterModule} from '@angular/router';
 import {UserRoutes} from './user.routing';
 import {DemoMaterialModule} from '../demo-material-module';
 import {SettingsComponent} from './settings/settings.component';
-import {UserProfileComponent} from '../shared/user-profile/user-profile.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {SharedModule} from '../shared/shared.module';
+import {UserProfileComponent} from '../shared/user-profile/user-profile.component';
 
 @NgModule({
   imports: [
     CommonModule,
     DemoMaterialModule,
     FormsModule,
+    SharedModule,
     ReactiveFormsModule,
     RouterModule.forChild(UserRoutes)
   ],
-  declarations: [HomeComponent, UserProfileComponent, SettingsComponent]
+  declarations: [HomeComponent, SettingsComponent],
+  entryComponents: [UserProfileComponent]
 })
 export class UserModule {
 }

@@ -7,20 +7,23 @@ import {CompanyRoutes} from './company.routing';
 import {SettingsComponent} from './settings/settings.component';
 import {DemoMaterialModule} from '../demo-material-module';
 import {HomeComponent} from './home/home.component';
-import {UserProfileComponent} from '../shared/user-profile/user-profile.component';
-import { HireEmployeeComponent } from './hire-employee/hire-employee.component';
+import {HireEmployeeComponent} from './hire-employee/hire-employee.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {UserProfileComponent} from '../shared/user-profile/user-profile.component';
+import {SharedModule} from '../shared/shared.module';
 
 @NgModule({
   imports: [
     CommonModule,
     DemoMaterialModule,
     FormsModule,
+    SharedModule,
     ReactiveFormsModule,
     RouterModule.forChild(CompanyRoutes)
   ],
   declarations: [EmployeeComponent, CertificateComponent, SettingsComponent,
-    HomeComponent, UserProfileComponent, HireEmployeeComponent]
+    HomeComponent, HireEmployeeComponent],
+  entryComponents: [UserProfileComponent]
 })
 export class CompanyModule {
 }
