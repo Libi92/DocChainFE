@@ -1,26 +1,28 @@
-<div style="text-align: center">
-  <div style="width:800px; height:600px; padding:20px; text-align:center; border: 10px solid #787878">
-    <div style="width:750px; height:550px; padding:20px; text-align:center; border: 5px solid #787878">
-      <div align="center">
+<mat-dialog-content>
+  <div style="text-align: center" *ngFor="let certificate of data['certificates']">
+    <div style="width:800px; height:600px; padding:20px; text-align:center; border: 10px solid #787878">
+      <div style="width:750px; height:550px; padding:20px; text-align:center; border: 5px solid #787878">
+        <div align="center">
 
-        <h2 align="center" style="font-size:18px; font-weight:bold">
-          {{data['university']['name']}}
-        </h2>
-        <span style="font-size:38px; font-weight:bold"> Degree Certificate </span>
-        <br><br>
-        <span style="font-size:22px"><i>This is to certify that</i></span>
-        <br><br>
-        <span style="font-size:30px"><b>
-          {{data['student']['user']['name']}}
+          <h2 align="center" style="font-size:18px; font-weight:bold">
+            {{certificate['university']['name']}}
+          </h2>
+          <span style="font-size:38px; font-weight:bold"> Degree Certificate </span>
+          <br><br>
+          <span style="font-size:22px"><i>This is to certify that</i></span>
+          <br><br>
+          <span style="font-size:30px"><b>
+          {{certificate['student']['user']['name']}}
         </b></span><br/><br/>
-        <span style="font-size:22px">
-          <i>has completed {{data['degree']}} Degree in {{data['student']['department']}}</i>
+          <span style="font-size:22px">
+          <i>has completed {{certificate['degree']}} Degree in {{certificate['student']['department']}}</i>
         </span> <br/><br/>
-        <span style="font-size:22px">from {{data['student']['college']}}</span> <br/><br/>
-        <span style="font-size:18px">with CGPA of  <b>{{data['marks']}}</b></span> <br/><br/>
-        <span style="font-size:22px"><i>Dated year {{data['year']}}</i></span>
+          <span style="font-size:22px">from {{certificate['student']['college']}}</span> <br/><br/>
+          <span style="font-size:18px">with CGPA of  <b>{{certificate['marks']}}</b></span> <br/><br/>
+          <span style="font-size:22px"><i>Dated year {{certificate['year']}}</i></span>
 
+        </div>
       </div>
     </div>
   </div>
-</div>
+</mat-dialog-content>

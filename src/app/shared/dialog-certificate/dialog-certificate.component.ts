@@ -14,6 +14,8 @@ export class DialogCertificateComponent implements OnInit {
   constructor(public dialogRef: MatDialogRef<DialogCertificateComponent>,
               @Inject(MAT_DIALOG_DATA) public data: any,
               private commonService: CommonService) {
+
+    console.log(data);
   }
 
   ngOnInit() {

@@ -16,6 +16,10 @@ export class UniversityService {
     return this.http.post<any>(AppConstants.BASE_URL + UniversityService.STUDENT + '/create', user);
   }
 
+  addGradStudent(user: any): Observable<any> {
+    return this.http.post<any>(AppConstants.BASE_URL + UniversityService.STUDENT + '/add', user);
+  }
+
   getStudent(req: any): Observable<any> {
     return this.http.post<any>(AppConstants.BASE_URL + UniversityService.STUDENT + '/get', req);
   }

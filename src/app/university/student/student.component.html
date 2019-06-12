@@ -3,6 +3,17 @@
      fxLayoutAlign="center"
      fxLayoutGap="10px">
   <div fxFlex="50%">
+    <mat-form-field class="example-full-width">
+      <input matInput placeholder="User Identification No" #uId>
+    </mat-form-field>
+    <button mat-raised-button color="primary" (click)="findUser(uId.value)">Find</button>
+
+    <app-user-profile *ngIf="userId" [userId]="userId"
+                      (loadCompleted)="onProfileLoad($event)"></app-user-profile>
+
+    <button mat-raised-button *ngIf="userData" color="primary" (click)="addGradStudent()">Add</button>
+  </div>
+  <div fxFlex="50%">
     <h3>Add New Student</h3>
     <form [formGroup]="studentForm">
       <mat-form-field class="full-width">

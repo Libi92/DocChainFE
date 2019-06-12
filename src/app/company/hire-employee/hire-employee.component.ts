@@ -20,11 +20,12 @@ export class HireEmployeeComponent implements OnInit {
   }
 
   ngOnInit() {
+    console.log(this.userData);
   }
 
   hire(department, role) {
     const req = {
-      'userId': this.userData['student']['userId'],
+      'userId': this.userData['certifiedUser'],
       'companyId': this.commonService.loggedInUser['_id'],
       'department': department,
       'role': role

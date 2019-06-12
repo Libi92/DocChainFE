@@ -15,6 +15,8 @@ export class StudentComponent implements OnInit {
   studentForm: FormGroup;
 
   student_list = null;
+  userId: string;
+  userData = null;
 
   name = new FormControl('', Validators.required);
   registerNo = new FormControl('', Validators.required);
@@ -55,6 +57,19 @@ export class StudentComponent implements OnInit {
 
   ngOnInit() {
     this.getStudent();
+  }
+
+  findUser(uId) {
+    this.userId = uId;
+  }
+
+  onProfileLoad(userData) {
+    this.userData = userData;
+  }
+
+  addGradStudent() {
+    this.name.setValue(this.userData['student'][0]['user']['name']);
+    this.adhaar.setValue(this.userData['student'][0]['adhaar']);
   }
 
   addStudent() {
@@ -127,6 +142,7 @@ export class StudentComponent implements OnInit {
     }
 
     const req = {
+      'userId': this.userId,
       'name': name,
       'registerNo': registerNo,
       'department': department,
@@ -137,11 +153,19 @@ export class StudentComponent implements OnInit {
       'university': this.commonService.loggedInUser._id
     };
 
-    this.universityService.addStudent(req).subscribe(res => {
-      if (res['status']) {
-        this.addStudentToBlockchain(res['student'], this.name.value);
-      }
-    });
+    if (this.userData) {
+      this.universityService.addGradStudent(req).subscribe(res => {
+        if (res['status']) {
+          this.addStudentToBlockchain(res['student'], this.name.value);
+        }
+      });
+    } else {
+      this.universityService.addStudent(req).subscribe(res => {
+        if (res['status']) {
+          this.addStudentToBlockchain(res['student'], this.name.value);
+        }
+      });
+    }
   }
 
   addStudentToBlockchain(userId, name) {

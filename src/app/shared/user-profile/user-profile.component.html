@@ -3,17 +3,20 @@
   <div style="float: right">
     <button mat-raised-button color="primary" (click)="onCertificateSelect(profile_data)">Certificate</button>
   </div>
-  <h3>{{profile_data['student']['user']['name']}}</h3>
-  <mat-list>
-    <mat-list-item> User Identification No: <b>{{profile_data['student']['userId']}}</b></mat-list-item>
-    <mat-list-item> Register No: {{profile_data['student']['registerNo']}}</mat-list-item>
-    <mat-list-item> Department: {{profile_data['student']['department']}}</mat-list-item>
-    <mat-list-item> Degree: {{profile_data['student']['degree']}}</mat-list-item>
-    <mat-list-item> College: {{profile_data['student']['college']}}</mat-list-item>
-    <mat-list-item> Year: {{profile_data['student']['year']}}</mat-list-item>
-    <mat-list-item> University: {{profile_data['university']['name']}}</mat-list-item>
-  </mat-list>
-  <div *ngIf="profile_data['experience'].length > 0">
+  <h3>{{profile_data['student'][0]['user']['name']}}</h3>
+  <h5>User Identification No: <b>{{profile_data['certifiedUser']}}</b></h5>
+  <div *ngFor="let student of profile_data['student']" style="float: left">
+    <mat-list>
+      <mat-list-item> Register No: {{student['registerNo']}}</mat-list-item>
+      <mat-list-item> Department: {{student['department']}}</mat-list-item>
+      <mat-list-item> Degree: {{student['degree']}}</mat-list-item>
+      <mat-list-item> College: {{student['college']}}</mat-list-item>
+      <mat-list-item> Year: {{student['year']}}</mat-list-item>
+      <mat-list-item> University: {{student['university']['name']}}</mat-list-item>
+    </mat-list>
+  </div>
+  <div *ngIf="profile_data['experience'].length > 0"
+       style="border: #1e88e5; border-width: 2px; border-style: solid; float: left;">
     <h4>Experiences</h4>
     <mat-list>
       <mat-list-item *ngFor="let experience of profile_data['experience']">
